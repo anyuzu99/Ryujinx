@@ -12,8 +12,6 @@ on:
       - '*.config'
       - 'README.md'
 
-concurrency: release
-
 env:
   POWERSHELL_TELEMETRY_OPTOUT: 1
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
