@@ -24,7 +24,6 @@ jobs:
   macos_release:
     name: Release MacOS universal
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ fromJSON(vars.JOB_TIMEOUT) }}
     steps:
       - uses: actions/checkout@v4
 
