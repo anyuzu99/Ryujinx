@@ -23,27 +23,6 @@ env:
   RYUJINX_TARGET_RELEASE_CHANNEL_REPO: "release-channel-master"
 
 jobs:
-  tag:
-    name: Create tag
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get version info
-        id: version_info
-        run: |
-          echo "build_version=${{ env.RYUJINX_BASE_VERSION }}.${{ github.run_number }}" >> $GITHUB_OUTPUT
-        shell: bash
-
-      - name: Create tag
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/${{ steps.version_info.outputs.build_version }}',
-              sha: context.sha
-            })
-
   macos_release:
     name: Release MacOS universal
     runs-on: ubuntu-latest
